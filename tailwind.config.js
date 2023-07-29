@@ -13,7 +13,7 @@ module.exports = {
         'home-desktop': "url('/src/assets/home/background-home-desktop.jpg')",
         'destination-desktop': "url('/src/assets/destination/background-destination-desktop.jpg')",
         'crew-desktop': "url('/src/assets/crew/background-crew-desktop.jpg')",
-        'technology-desktop': "url('/src/assets/background-technology-desktop.jpg')"
+        'technology-desktop': "url('/src/assets/technology/background-technology-desktop.jpg')"
       }
     },
   },
