@@ -24,12 +24,20 @@ function Navbar() {
             </div>
             <hr className='w-3/4 z-10 hidden lg:block'></hr>
           </div>
-          <div className='lg:w-1/2 hidden  bg-navColor h-full md:flex items-center lg:pl-10'>
+          <div className='lg:w-1/2 hidden bg-transparent backdrop-blur-lg h-full md:flex items-center lg:pl-10'>
             <ul className='h-full flex justify-center items-center text-white'>
-              <Link to="/" onClick={() => setSelected("/")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>00</span> HOME</Link>
-              <Link to="/destination" onClick={() => setSelected("/destination")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/destination" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>01</span> DESTINATION</Link>
-              <Link to="/crew" onClick={() => setSelected("/crew")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/crew" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>02</span> CREW</Link>
-              <Link to="/technology" onClick={() => setSelected("/technology")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/technology" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>03</span> TECHNOLOGY</Link>
+              <li className='h-full'>
+                <Link to="/" onClick={() => setSelected("/")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>00</span> HOME</Link>
+              </li>
+              <li className='h-full'>
+                <Link to="/destination" onClick={() => setSelected("/destination")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/destination" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>01</span> DESTINATION</Link>
+              </li>
+              <li className='h-full'>
+                <Link to="/crew" onClick={() => setSelected("/crew")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/crew" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>02</span> CREW</Link>
+              </li>
+              <li className='h-full'>
+                <Link to="/technology" onClick={() => setSelected("/technology")} className={`flex h-full items-center gap-2 text-base ml-4 border-b-4 ${selected === "/technology" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>03</span> TECHNOLOGY</Link>
+              </li>
             </ul>
           </div>
           <div className={`md:hidden mr-5 fixed top-5 right-0`}>
@@ -44,52 +52,60 @@ function Navbar() {
         openNav && 
         <div className='absolute top-0 right-0 w-full h-screen bg-black'>
           <ul className='h-full flex flex-col justify-center items-center gap-16 text-white'>
+          <li>
             <Link
              to="/" 
              onClick={
               () => {
-                setSelected("home");
+                setSelected("/");
                 setOpenNav(false);
               }
             } 
-             className={`flex items-center gap-2 text-base  border-b-4 ${selected === "home" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>00</span> 
+             className={`flex items-center gap-2 text-base  border-b-4 ${selected === "/" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>00</span> 
              HOME
             </Link>
-            <Link
-              to="/destination" 
+          </li>
+            <li>
+              <Link
+                to="/destination" 
+                onClick={
+                  () => {
+                    setSelected("/destination");
+                    setOpenNav(false);
+                  }
+                } 
+                className={`flex items-center gap-2 text-base  border-b-4 ${selected === "/destination" ? "border-b-white":"border-transparent"}`}>
+                <span className='font-bold'>01</span> 
+                DESTINATION
+              </Link>
+            </li>
+            <li>
+              <Link 
+              to="/crew" 
               onClick={
                 () => {
-                  setSelected("destination");
+                  setSelected("/crew");
                   setOpenNav(false);
-                }
-              } 
-              className={`flex items-center gap-2 text-base  border-b-4 ${selected === "destination" ? "border-b-white":"border-transparent"}`}>
-              <span className='font-bold'>01</span> 
-              DESTINATION
-            </Link>
-            <Link 
-            to="/crew" 
-            onClick={
-              () => {
-                setSelected("crew");
-                setOpenNav(false);
-                }
-              } 
-              className={`flex items-center gap-2 text-base  border-b-4 ${selected === "crew" ? "border-b-white":"border-transparent"}`}>
-              <span className='font-bold'>02</span> 
-              CREW
-            </Link>
-            <Link
-             to="/technology" 
-             onClick={
-              () => {
-                setSelected("technology");
-                setOpenNav(false)
-                }
-              } 
-              className={`flex items-center gap-2 text-base  border-b-4 ${selected === "technology" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>03</span>
-               TECHNOLOGY
+                  }
+                } 
+                className={`flex items-center gap-2 text-base  border-b-4 ${selected === "/crew" ? "border-b-white":"border-transparent"}`}>
+                <span className='font-bold'>02</span> 
+                CREW
               </Link>
+            </li>
+            <li>
+              <Link
+              to="/technology" 
+              onClick={
+                () => {
+                  setSelected("/technology");
+                  setOpenNav(false)
+                  }
+                } 
+                className={`flex items-center gap-2 text-base  border-b-4 ${selected === "/technology" ? "border-b-white":"border-transparent"}`}><span className='font-bold'>03</span>
+                TECHNOLOGY
+                </Link>
+            </li>
           </ul>
         </div>
       }

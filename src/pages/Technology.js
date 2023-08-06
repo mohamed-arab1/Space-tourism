@@ -12,12 +12,11 @@ function Technology() {
     )
 
     useEffect(() => {
+
       function handleRezise() {
         setWidth(window.innerWidth);
       }
-
-      console.log(width)
-
+      
       window.addEventListener("resize", handleRezise);
       return window.removeEventListener("resize", handleRezise)
     }, [])
